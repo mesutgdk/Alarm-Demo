@@ -11,25 +11,12 @@ class AlarmViewController: UIViewController {
     
     let alarmManager = AlarmManager()
     
-    private let stackView: UIStackView = {
-        let stackView = UIStackView ()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-//        stackView.spacing = 0
-        return stackView
-    }()
     
     private let datePicker: UIPickerView = {
         var picker = UIPickerView()
         picker.translatesAutoresizingMaskIntoConstraints = false
         return picker
     }()
-    
-//    private let minutePicker: UIPickerView = {
-//        var picker = UIPickerView()
-//        picker.translatesAutoresizingMaskIntoConstraints = false
-//        return picker
-//    }()
     
     private let setButton: UIButton = {
         let button = UIButton(type: .system)
@@ -46,14 +33,16 @@ class AlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         setup()
         layout()
+        
     }
     private func setup (){
         view.addSubviews(datePicker,setButton)
       
         view.backgroundColor = .systemBackground
+        
         datePicker.delegate = self
         datePicker.dataSource = self
 
@@ -80,9 +69,16 @@ class AlarmViewController: UIViewController {
 // MARK: - Action
 extension AlarmViewController{
     @objc func setButtonTapped(){
-        print()
+        print(alarmManager.getSelectedTimeFromPicker(pickerView: datePicker))
+        
+        let alert = UIAlertController(title: "Successfull", message: "Alarm successfully set!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
+    
 }
+
 // MARK: - PickerView Delegate and DataSourse
 extension AlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -104,5 +100,6 @@ extension AlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return 70
     }
+
 }
 
