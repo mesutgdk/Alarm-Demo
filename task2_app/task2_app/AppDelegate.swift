@@ -13,11 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-                   if granted {
-                       print("Notification allowed")
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (approved, error) in
+                   if approved {
+                       print("İzin Alındı Hadi İyisin")
                    } else {
-                       print("Notification permission denied")
+                       print("İzin Verilmedi, Malesef")
                    }
                }
                

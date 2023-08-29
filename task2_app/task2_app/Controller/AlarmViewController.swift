@@ -51,7 +51,7 @@ final class AlarmViewController: UIViewController {
         // datePicker
         NSLayoutConstraint.activate([
             datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
-            datePicker.heightAnchor.constraint(equalToConstant: 100),
+            datePicker.heightAnchor.constraint(equalToConstant: 175),
             datePicker.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             datePicker.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
             
@@ -69,12 +69,8 @@ final class AlarmViewController: UIViewController {
 // MARK: - Action
 extension AlarmViewController{
     @objc func setButtonTapped(){
-        print(alarmManager.getSelectedTimeFromPicker(pickerView: datePicker))
+        alarmManager.getSelectedTimeFromPicker(pickerView: datePicker)
         
-        let alert = UIAlertController(title: "Successfull", message: "Alarm successfully set!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -99,6 +95,10 @@ extension AlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return 70
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 35
     }
 
 }
