@@ -7,10 +7,9 @@
 
 import UIKit
 
-class AlarmViewController: UIViewController {
+final class AlarmViewController: UIViewController {
     
-    let alarmManager = AlarmManager()
-    
+    private let alarmManager = AlarmManager()
     
     private let datePicker: UIPickerView = {
         var picker = UIPickerView()
@@ -38,6 +37,7 @@ class AlarmViewController: UIViewController {
         layout()
         
     }
+    
     private func setup (){
         view.addSubviews(datePicker,setButton)
       
