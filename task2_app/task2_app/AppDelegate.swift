@@ -6,11 +6,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (approved, error) in
@@ -38,6 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        // Configure the audio session
+           do {
+               try AVAudioSession.sharedInstance().setCategory(.playback)
+               try AVAudioSession.sharedInstance().setActive(true)
+           } catch {
+               print("Error setting audio session: \(error.localizedDescription)")
+           }
+        
+        // Start playing the alarm sound
+        SoundManager.shared.playAlarmSound()
+        
+        completionHandler(.newData)
+    }
 }
 

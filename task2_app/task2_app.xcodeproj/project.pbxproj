@@ -14,6 +14,8 @@
 		636895952A9DC2350083CE03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636895932A9DC2350083CE03 /* LaunchScreen.storyboard */; };
 		6368959D2A9E13250083CE03 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368959C2A9E13250083CE03 /* Extensions.swift */; };
 		63AB602C2A9E788800EF1923 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB602B2A9E788800EF1923 /* AlarmManager.swift */; };
+		63AB60302A9EB41C00EF1923 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB602F2A9EB41C00EF1923 /* SoundManager.swift */; };
+		63AB60322AA06B5F00EF1923 /* wakeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63AB60312AA06B5F00EF1923 /* wakeup.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		636895962A9DC2350083CE03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6368959C2A9E13250083CE03 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		63AB602B2A9E788800EF1923 /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
+		63AB602F2A9EB41C00EF1923 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		63AB60312AA06B5F00EF1923 /* wakeup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wakeup.mp3; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 				636895932A9DC2350083CE03 /* LaunchScreen.storyboard */,
 				636895962A9DC2350083CE03 /* Info.plist */,
 				6368959C2A9E13250083CE03 /* Extensions.swift */,
+				63AB60312AA06B5F00EF1923 /* wakeup.mp3 */,
 			);
 			path = task2_app;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				63AB602B2A9E788800EF1923 /* AlarmManager.swift */,
+				63AB602F2A9EB41C00EF1923 /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63AB60322AA06B5F00EF1923 /* wakeup.mp3 in Resources */,
 				636895952A9DC2350083CE03 /* LaunchScreen.storyboard in Resources */,
 				636895922A9DC2350083CE03 /* Assets.xcassets in Resources */,
 			);
@@ -169,6 +176,7 @@
 				6368958B2A9DC2340083CE03 /* SceneDelegate.swift in Sources */,
 				6368959D2A9E13250083CE03 /* Extensions.swift in Sources */,
 				63AB602C2A9E788800EF1923 /* AlarmManager.swift in Sources */,
+				63AB60302A9EB41C00EF1923 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

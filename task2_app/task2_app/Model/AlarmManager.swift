@@ -5,7 +5,6 @@
 //  Created by Mesut Gedik on 29.08.2023.
 //
 
-import UserNotifications
 import AVFoundation
 import UIKit
 
@@ -33,10 +32,11 @@ struct AlarmManager{
         let content = UNMutableNotificationContent()
         content.title = "Wake Up!"
         content.body = "You shall not sleep"
-        content.sound = .default
+//        content.sound = .default
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "wakeup.mp3"))
         
         // Create a date based on the selected hour and minute
-        let calendar = Calendar.current
+//        let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.hour = hour
         dateComponents.minute = minute
@@ -46,8 +46,13 @@ struct AlarmManager{
         
         // Create a request with the content and trigger
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
+        callTheAlarm()
+    }
+    
+    private func callTheAlarm(){
         // Show success message using UIAlertController
         let alert = UIAlertController(title: "Successfull", message: "Alarm successfully set!", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
