@@ -21,7 +21,6 @@ struct AlarmManager{
         
         print(selectedHour,selectedMinute)
         setAlarmButtonTapped(selectedHour: selectedHour, selectedHour: selectedMinute)
-        
     }
     
     // MARK: - Creating an Alarm
@@ -49,10 +48,10 @@ struct AlarmManager{
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
-        callTheAlarm()
+        callTheAlart()
     }
     
-    private func callTheAlarm(){
+    private func callTheAlart(){
         // Show success message using UIAlertController
         let alert = UIAlertController(title: "Successfull", message: "Alarm successfully set!", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
