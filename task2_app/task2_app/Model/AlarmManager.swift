@@ -12,6 +12,7 @@ struct AlarmManager{
     let hourArray = Array(0...23)
     let minuteArray = Array(0...59)
     
+    
     func getSelectedTimeFromPicker(pickerView: UIPickerView) {
         let selectedHourRow = pickerView.selectedRow(inComponent: 0)
         let selectedMinuteRow = pickerView.selectedRow(inComponent: 1)
@@ -31,11 +32,9 @@ struct AlarmManager{
         let content = UNMutableNotificationContent()
         content.title = "Wake Up!"
         content.body = "You shall not sleep"
-//        content.sound = .default
-        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "wakeup.mp3"))
+        content.sound = .criticalSoundNamed(UNNotificationSoundName(rawValue: "wakeup.mp3"), withAudioVolume: 1)
         
         // Create a date based on the selected hour and minute
-//        let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.hour = hour
         dateComponents.minute = minute
@@ -49,6 +48,7 @@ struct AlarmManager{
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
         callTheAlart()
+        
     }
     
     private func callTheAlart(){
@@ -62,4 +62,8 @@ struct AlarmManager{
             VC.present(alert, animated: true, completion: nil)
         }
     }
+    
+    
+
+    // Kullanımı
 }

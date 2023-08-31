@@ -30,6 +30,20 @@ final class AlarmViewController: UIViewController {
         return button
     }()
     
+    private let stopButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = true
+        button.configuration = .plain()
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .systemRed
+        button.setTitle("Stop", for: [])
+        button.addTarget(self, action: #selector(stopButtonTapped), for: .primaryActionTriggered)
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +53,7 @@ final class AlarmViewController: UIViewController {
     }
     
     private func setup (){
-        view.addSubviews(datePicker,setButton)
+        view.addSubviews(datePicker,setButton,stopButton)
       
         view.backgroundColor = .systemBackground
         
@@ -63,14 +77,28 @@ final class AlarmViewController: UIViewController {
             setButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
             setButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
         ])
+        //stopButton
+        NSLayoutConstraint.activate([
+            stopButton.heightAnchor.constraint(equalToConstant: 50),
+            stopButton.widthAnchor.constraint(equalTo: stopButton.heightAnchor, constant: 20),
+            stopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            stopButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
+        ])
     }
     
 }
-// MARK: - Action
+// MARK: - Actions
 extension AlarmViewController{
     @objc func setButtonTapped(){
         alarmManager.getSelectedTimeFromPicker(pickerView: datePicker)
         
+    }
+    @objc func stopButtonTapped (){
+        SoundManager.shared.stopAlarmSound()
+        stopButton.isHidden = true
+    }
+    public func makeStopButtonVisible(_ isVisible: Bool){
+        stopButton.isHidden = isVisible
     }
     
 }
