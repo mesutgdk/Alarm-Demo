@@ -38,6 +38,7 @@ final class AlarmViewController: UIViewController {
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         button.backgroundColor = .systemRed
+        button.tintColor = .systemBackground
         button.setTitle("Stop", for: [])
         button.addTarget(self, action: #selector(stopButtonTapped), for: .primaryActionTriggered)
         
