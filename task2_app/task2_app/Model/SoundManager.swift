@@ -46,7 +46,7 @@ final class SoundManager {
         // Show success message using UIAlertController
         let alert = UIAlertController(title: "Ding Dang", message: "Time To Wake Up", preferredStyle: .alert)
         let action = UIAlertAction(title: "Too Hard but OK", style: .default) { (action) in
-            self.stopAlarmSound()
+//            self.stopAlarmSound()
         }
         alert.addAction(action)
         

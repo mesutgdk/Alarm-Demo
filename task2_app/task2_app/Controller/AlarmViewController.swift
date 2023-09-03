@@ -82,7 +82,7 @@ final class AlarmViewController: UIViewController {
         NSLayoutConstraint.activate([
             stopButton.heightAnchor.constraint(equalToConstant: 50),
             stopButton.widthAnchor.constraint(equalTo: stopButton.heightAnchor, constant: 20),
-            stopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            stopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             stopButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
     }
@@ -94,7 +94,7 @@ extension AlarmViewController{
         alarmManager.getSelectedTimeFromPicker(pickerView: datePicker)
         DispatchQueue.main.asyncAfter(deadline: .now() + SoundManager.shared.selectedTime , execute: {
             SoundManager.shared.playAlarmSound()
-       
+            self.stopButton.isHidden = false
         })
     }
     @objc func stopButtonTapped (){
