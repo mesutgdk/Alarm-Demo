@@ -15,6 +15,7 @@ final class SoundManager {
     var volumeTimer: Timer?
     let maxVolume: Float = 1.0
     let duration: TimeInterval = 30.0
+    var selectedTime: Double = 0
     
     private init() {
     }
@@ -32,6 +33,7 @@ final class SoundManager {
             player?.setVolume(maxVolume, fadeDuration: duration)
             player?.prepareToPlay()
             player?.play()
+            callTheAlart()
         } catch {
             print("Error playing alarm sound: \(error.localizedDescription)")
         }
@@ -39,6 +41,19 @@ final class SoundManager {
 
     func stopAlarmSound(){
         player?.stop()
+    }
+    private func callTheAlart(){
+        // Show success message using UIAlertController
+        let alert = UIAlertController(title: "Ding Dang", message: "Time To Wake Up", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Too Hard but OK", style: .default) { (action) in
+            self.stopAlarmSound()
+        }
+        alert.addAction(action)
+        
+        // Present the alert
+        if let VC = UIApplication.shared.windows.first?.rootViewController {
+            VC.present(alert, animated: true, completion: nil)
+        }
     }
 
 

@@ -20,7 +20,8 @@ struct AlarmManager{
         let selectedHour = hourArray[selectedHourRow]
         let selectedMinute = minuteArray[selectedMinuteRow]
         
-        print(selectedHour,selectedMinute)
+//        print(selectedHour,selectedMinute)
+        SoundManager.shared.selectedTime = Double(selectedHour*3600 + selectedMinute*60)
         setAlarmButtonTapped(selectedHour: selectedHour, selectedHour: selectedMinute)
     }
     
@@ -46,7 +47,8 @@ struct AlarmManager{
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
+        print("Alarm is created, \(hour) hourIs, \(minute) minuteIs: ")
+        print("Alarm will start yelling after \(SoundManager.shared.selectedTime) seconds")
         callTheAlart()
         
     }
