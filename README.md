@@ -1,6 +1,8 @@
 # Alarm-Demo
 Mini alarm which will prevent you from kissing the princess in your sweet sleep😭
 
+## Features and Visual Feast 🐥
+
 App asks permisson to send you notifications
 
 ![srgif1](https://github.com/mesutgdk/Alarm-Demo/assets/112901255/a0eb70dd-5076-4ff1-878d-090d01fe6ca2)
